@@ -3,22 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Büyükada Etkinliği — Renk Çarkı & Tarihçe</title>
+  <title>Büyükada Etkinliği — Renk Çarkı & Bilgi Çeşmesi</title>
   <meta http-equiv="Cache-Control" content="no-store" />
   <style>
     :root{--bg:#0f1115;--card:#151923;--muted:#9aa4b2;--text:#e7ecf3;--accent:#5F81FF;--ring:#2a3142}
     *{box-sizing:border-box}
     body{margin:0;background:#0f1115;color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial}
     header{position:sticky;top:0;background:#151923;border-bottom:1px solid #1f2533}
-    .nav{max-width:1000px;margin:auto;padding:10px 16px;display:flex;gap:10px;align-items:center}
-    .brand{font-weight:700}
+    .nav{max-width:1100px;margin:auto;padding:10px 16px;display:flex;gap:10px;align-items:center}
+    .brand{font-weight:800;letter-spacing:.2px}
     .spacer{flex:1}
     .tab{border:0;background:#222a3a;color:#fff;border-radius:10px;padding:8px 12px;cursor:pointer}
     .tab[aria-selected="true"]{background:#5F81FF;color:#0b1020;font-weight:800}
-    main{max-width:1000px;margin:18px auto 60px;padding:0 16px}
-    .card{background:#151923;border:1px solid #22293a;border-radius:12px;padding:16px;margin-bottom:18px}
+    main{max-width:1100px;margin:18px auto 70px;padding:0 16px}
+    .hero{background:linear-gradient(180deg,rgba(95,129,255,.10),rgba(95,129,255,0) 60%),#121725;border:1px solid #1f2740;border-radius:12px;padding:18px;margin-bottom:18px}
+    .card{background:#151923;border:1px solid #22293a;border-radius:12px;padding:16px;margin-bottom:18px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
     .muted{color:var(--muted)}
     .pill{display:inline-block;padding:4px 8px;border-radius:6px;background:#1a2030;border:1px solid #2a3347}
+    ul{margin:8px 0 0 20px}
     /* wheel */
     .wrap{display:grid;place-items:center}
     .wheel{width:min(520px,85vw);aspect-ratio:1/1;border-radius:50%;position:relative;filter:drop-shadow(0 10px 24px rgba(0,0,0,.35))}
@@ -26,8 +28,18 @@
     .pin{position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:20px solid var(--accent)}
     .center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:22%;aspect-ratio:1/1;border-radius:50%;background:#0b1020;border:4px solid #29324a;display:grid;place-items:center;color:#a7b1c2;font-size:12px}
     .btn{border:0;border-radius:10px;background:linear-gradient(180deg,#6ea8ff,#5F81FF);color:#0b1020;font-weight:800;padding:10px 16px;cursor:pointer}
+    .ghost{border:1px solid #2a3146;background:#101624;color:#e7ecf3}
     .result{margin-top:12px;padding:12px;border-radius:10px;background:#101624;border:1px solid #26304a}
-    ul{margin:8px 0 0 20px}
+    /* Bilgi çeşmesi */
+    .fountain{display:grid;gap:12px}
+    .fact{min-height:64px;display:flex;align-items:center;justify-content:flex-start;padding:14px;border-radius:12px;background:#0f1523;border:1px solid #26324e;position:relative;overflow:hidden}
+    .fact::after{content:"";position:absolute;inset:auto -20% -60% -20%;height:120px;background:radial-gradient(200px 80px at 50% 0,#5F81FF22,transparent 60%);filter:blur(16px)}
+    .big{font-size:16px}
+    .stack{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+    .chip{padding:8px;border-radius:10px;background:#101624;border:1px solid #26304a;font-size:12px;color:#cdd7e8;min-height:56px}
+    .mini{font-size:12px}
+    @media(max-width:820px){.stack{grid-template-columns:repeat(2,1fr)}}
+    footer{max-width:1100px;margin:0 auto 60px;padding:0 16px;color:var(--muted);font-size:13px;text-align:center}
   </style>
 </head>
 <body>
@@ -36,15 +48,20 @@
       <div class="brand">Büyükada Etkinliği</div>
       <div class="spacer"></div>
       <button id="tWheel" class="tab" aria-selected="true">🎯 Renk Çarkı</button>
-      <button id="tInfo"  class="tab" aria-selected="false">🏝️ Büyükada Tarihi</button>
+      <button id="tInfo"  class="tab" aria-selected="false">🏝️ Bilgi Çeşmesi</button>
     </div>
   </header>
 
   <main>
+    <section class="hero">
+      <h1 style="margin:0 0 6px">Renk Çarkı & Bilgi Çeşmesi</h1>
+      <p class="muted">Çarkı çevir → çıkan renkten <strong>en az 4 fotoğraf</strong> çek. Molada “Bilgi Çeşmesi”nden bir yudum al, Büyükada hakkında rastgele ilginç bir bilgi öğren. 🍀</p>
+    </section>
+
     <!-- Renk Çarkı -->
     <section id="sWheel" class="card">
-      <h2>Fotoğraf Yarışması — Renk Çarkı</h2>
-      <p class="muted">Çarkı çevir, çıkan renkten <strong>en az 4 fotoğraf</strong> çek. Dönüşte ekip oylamasıyla “Günün Serisi”ni seçiyoruz.</p>
+      <h2 style="margin-top:0">Fotoğraf Yarışması — Renk Çarkı</h2>
+      <p class="muted">Dönüşte ekip oylamasıyla “Günün Serisi”ni seçiyoruz.</p>
 
       <div class="wrap" style="margin-top:8px">
         <div class="wheel">
@@ -54,7 +71,7 @@
         </div>
         <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
           <button class="btn" id="spin">ÇARKI ÇEVİR</button>
-          <button class="tab" id="reset">Sıfırla</button>
+          <button class="tab ghost" id="reset">Sıfırla</button>
         </div>
       </div>
 
@@ -73,93 +90,167 @@
       </div>
     </section>
 
-    <!-- Büyükada Tarihi -->
+    <!-- Bilgi Çeşmesi -->
     <section id="sInfo" class="card" hidden>
-      <h2>Büyükada Tarihinden İlginç Bilgiler</h2>
-      <ul>
-        <li><strong>Bizans:</strong> 9. yüzyıldan itibaren bir <em>sürgün</em> adası; İmparatoriçe İrene dâhil kimi hanedan üyeleri burada tutuldu.</li>
-        <li><strong>Osmanlı:</strong> 19. yy’da Rum, Ermeni ve Yahudi cemaatlerinin sayfiye merkezi; görkemli ahşap <em>köşk</em> mimarisi bu dönemde gelişti.</li>
-        <li><strong>Manastırlar:</strong> Aya Yorgi Tepesi’ndeki manastır hem dini ziyaret hem manzara noktası olarak simgesel önemde.</li>
-        <li><strong>Troçki:</strong> 1929–1933 arasında sürgün yaşamını Büyükada’da sürdürdü; bazı eserlerini burada yazdı.</li>
-        <li><strong>Ulaşım kültürü:</strong> Uzun yıllar adanın sembolü <em>faytonlardı</em>; günümüzde yerini elektrikli araçlar ve bisiklet aldı.</li>
-        <li><strong>Kültürel doku:</strong> Panjurlu ahşap köşkler, Osmanlı ile Avrupa etkilerinin harmanını yansıtır.</li>
-      </ul>
+      <h2 style="margin-top:0">🏝️ Bilgi Çeşmesi</h2>
+      <p class="muted mini">Butona bas: “çeşmeden” rastgele bir Büyükada bilgisi akacak. Son 5 yudumu altta saklıyoruz.</p>
+
+      <div class="fountain">
+        <div id="factBox" class="fact big">Hazır mısın? <span class="pill" style="margin-left:8px">Bir yudum al 🍶</span></div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button id="drawFact" class="btn">Bilgi Çeşmesinden Bir Yudum Al</button>
+          <button id="another" class="tab ghost">Başka!</button>
+        </div>
+        <div class="mini muted">Son yudumlar:</div>
+        <div id="recent" class="stack"></div>
+      </div>
     </section>
   </main>
 
+  <footer>© <span id="y"></span> Büyükada Etkinliği — Renk çarkı & bilgi çeşmesi tek sayfa.</footer>
+
   <script>
-    // --- ÇARK AYARLARI ---
-    const COLORS = ['#2FA3BF','#2E6B5E','#B55239','#F2E7C9'];
-    const LABELS = ['Deniz','Çam','Kiremit','Kum'];
-    const svg = document.getElementById('wheel');
-    let spinAngle = 0, chosen = null;
+    // ---------- RENK ÇARKI ----------
+    const COLORS=['#2FA3BF','#2E6B5E','#B55239','#F2E7C9'];
+    const LABELS=['Deniz','Çam','Kiremit','Kum'];
+    const svg=document.getElementById('wheel');
+    let spinAngle=0, chosen=null;
 
-    function contrast(hex){
-      const c = hex.replace('#','');
-      const r=parseInt(c.slice(0,2),16), g=parseInt(c.slice(2,4),16), b=parseInt(c.slice(4,6),16);
-      const yiq=(r*299+g*587+b*114)/1000;
-      return yiq >= 140 ? '#0b1020' : '#f2f4f8';
-    }
-
-    function draw(){
-      svg.innerHTML='';
-      const r=48, cx=50, cy=50, n=COLORS.length;
+    function contrast(hex){const c=hex.replace('#','');const r=parseInt(c.slice(0,2),16),g=parseInt(c.slice(2,4),16),b=parseInt(c.slice(4,6),16);return (r*299+g*587+b*114)/1000>=140?'#0b1020':'#f2f4f8';}
+    function drawWheel(){
+      svg.innerHTML='';const r=48,cx=50,cy=50,n=COLORS.length;
       for(let i=0;i<n;i++){
-        const a0=(i/n)*2*Math.PI - Math.PI/2, a1=((i+1)/n)*2*Math.PI - Math.PI/2;
-        const x1=cx+r*Math.cos(a0), y1=cy+r*Math.sin(a0);
-        const x2=cx+r*Math.cos(a1), y2=cy+r*Math.sin(a1);
+        const a0=(i/n)*2*Math.PI-Math.PI/2,a1=((i+1)/n)*2*Math.PI-Math.PI/2;
+        const x1=cx+r*Math.cos(a0),y1=cy+r*Math.sin(a0),x2=cx+r*Math.cos(a1),y2=cy+r*Math.sin(a1);
         const p=document.createElementNS('http://www.w3.org/2000/svg','path');
         p.setAttribute('d',`M ${cx} ${cy} L ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2} Z`);
-        p.setAttribute('fill',COLORS[i]); p.setAttribute('stroke','#0b1020'); p.setAttribute('stroke-width','0.6');
-        svg.appendChild(p);
-        // Etiket
-        const mid=(a0+a1)/2, lx=cx+(r*0.58)*Math.cos(mid), ly=cy+(r*0.58)*Math.sin(mid);
+        p.setAttribute('fill',COLORS[i]);p.setAttribute('stroke','#0b1020');p.setAttribute('stroke-width','0.6');svg.appendChild(p);
+        const mid=(a0+a1)/2,lx=cx+(r*0.58)*Math.cos(mid),ly=cy+(r*0.58)*Math.sin(mid);
         const t=document.createElementNS('http://www.w3.org/2000/svg','text');
-        t.setAttribute('x',lx); t.setAttribute('y',ly); t.setAttribute('text-anchor','middle'); t.setAttribute('dominant-baseline','middle');
-        t.setAttribute('font-size','5'); t.setAttribute('font-weight','700'); t.setAttribute('fill',contrast(COLORS[i]));
-        t.textContent = LABELS[i]; svg.appendChild(t);
+        t.setAttribute('x',lx);t.setAttribute('y',ly);t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','middle');
+        t.setAttribute('font-size','5');t.setAttribute('font-weight','700');t.setAttribute('fill',contrast(COLORS[i]));t.textContent=LABELS[i];svg.appendChild(t);
       }
-      svg.style.transition='transform .0s'; svg.style.transform=`rotate(${spinAngle}deg)`;
-      setTimeout(()=>{ svg.style.transition='transform 2.2s cubic-bezier(.14,.81,.2,1)'; },20);
+      svg.style.transition='transform .0s';svg.style.transform=`rotate(${spinAngle}deg)`;
+      setTimeout(()=>{svg.style.transition='transform 2.2s cubic-bezier(.14,.81,.2,1)';},20);
     }
-
     function spin(){
-      const n=COLORS.length;
-      const target=Math.floor(Math.random()*n);
-      chosen = target;
-      const slice=360/n;
-      const targetAngle = 360 - (target + 0.5) * slice;
-      const final = 4*360 + targetAngle + (Math.random()*4-2);
-      spinAngle = final % 360;
-
-      svg.style.transition='transform 3.1s cubic-bezier(.07,.8,.11,1)';
-      svg.style.transform=`rotate(${final}deg)`;
-      document.getElementById('spin').disabled = true;
+      const n=COLORS.length,target=Math.floor(Math.random()*n);chosen=target;
+      const slice=360/n,targetAngle=360-(target+0.5)*slice,final=4*360+targetAngle+(Math.random()*4-2);spinAngle=final%360;
+      svg.style.transition='transform 3.1s cubic-bezier(.07,.8,.11,1)';svg.style.transform=`rotate(${final}deg)`;
+      document.getElementById('spin').disabled=true;
       setTimeout(()=>{
-        document.getElementById('spin').disabled = false;
-        const color = COLORS[chosen], label = LABELS[chosen];
-        const out = document.getElementById('out'); out.hidden=false;
-        document.getElementById('outText').innerHTML =
-          `Bugünün rengi: <span class="pill" style="background:${color};color:${contrast(color)}">${label}</span> — Bu renge odaklanarak en az <strong>4 fotoğraf</strong> çek.`;
+        document.getElementById('spin').disabled=false;
+        const color=COLORS[chosen],label=LABELS[chosen];
+        const out=document.getElementById('out');out.hidden=false;
+        document.getElementById('outText').innerHTML=`Bugünün rengi: <span class="pill" style="background:${color};color:${contrast(color)}">${label}</span> — Bu renge odaklanarak en az <strong>4 fotoğraf</strong> çek.`;
       },3200);
     }
+    function resetAll(){chosen=null;spinAngle=0;drawWheel();document.getElementById('out').hidden=true;}
 
-    function resetAll(){
-      chosen=null; spinAngle=0; draw(); document.getElementById('out').hidden=true;
+    document.getElementById('spin').addEventListener('click',spin);
+    document.getElementById('reset').addEventListener('click',resetAll);
+    drawWheel();
+
+    // ---------- BİLGİ ÇEŞMESİ ----------
+    const FACTS=[
+      "Prens Adaları’nın en büyüğü Büyükada, antik kaynaklarda Prinkipo adıyla anılır.",
+      "Bizans döneminde ada, hanedan üyeleri için sürgün ve gözaltı yeri olarak kullanıldı.",
+      "İmparatoriçe İrene bir dönem Büyükada’daki manastırlarda hapsedildi.",
+      "Ada çevresinde erken dönemden kalma küçük şapel temelleri bulunur.",
+      "Aya Yorgi Tepesi’ndeki manastır 18. yüzyıl kayıtlarında sıkça geçer.",
+      "Troçki 1929–1933 arasında Büyükada’da sürgünde yaşadı ve eserler yazdı.",
+      "19. yüzyılda ada, İstanbul’un çokkültürlü sayfiye hayatının odağıydı.",
+      "Rum, Ermeni ve Yahudi cemaatleri Büyükada’da yazlık köşk kültürünü geliştirdi.",
+      "Neo-klasik ve art nouveau etkileri, ada köşklerinde birlikte görülür.",
+      "Büyükada İskelesi’nin mimarisi 20. yüzyıl başı Osmanlı sivil mimarisine örnektir.",
+      "Köşklerin birçoğunda renkli vitray ve zarif dökme demir işçilikleri vardır.",
+      "Ahşap konakların cumbalı cepheleri, Boğaziçi yalılarıyla akraba bir dildir.",
+      "Faytonlar yüzyıllar boyunca adanın simgesiydi; günümüzde elektrikli araçlar kullanılıyor.",
+      "Bisiklet kültürü adanın modern kimliğinin önemli parçasıdır.",
+      "Büyükada’nın ormanları çoğunlukla kızılçam ve fıstıkçamı türlerinden oluşur.",
+      "Ada çevresinde martı, karabatak ve balıkçıl gibi türler gözlemlenir.",
+      "Poyrazlı günlerde kıyıda dalga çizgileri belirginleşir; denizcilik için işaret sayılırdı.",
+      "Adanın en yüksek noktası yaklaşık 203 metrelik Yücetepe’dir (Aya Yorgi).",
+      "Yücetepe, panoramik İstanbul siluetiyle ünlü bir seyir terası sunar.",
+      "Büyükada’da erken Cumhuriyet döneminden kalma kamu yapıları da bulunur.",
+      "Sürgün geleneği sadece Bizans’ta değil, sonraki dönemlerde de devam etti.",
+      "Osmanlı döneminde yaz aylarında ada nüfusu katlanarak artardı.",
+      "Elektrik ve modern altyapı, 20. yy’ın ilk yarısında adaya düzenli taşınmaya başladı.",
+      "Ada sokak adlandırmalarında eski köşk sahiplerinin isimleri sık görülür.",
+      "Büyükada’nın eski adı Megale Nisos, yani “Büyük Ada” anlamına gelir.",
+      "Adanın çevresinde küçük koylar ve yüzme alanları tarih boyunca rağbet gördü.",
+      "İskele meydanı, ada yaşamının ticari ve sosyal kalbidir.",
+      "Büyükada’da çok sayıda sivil cemaat okulu ve yardım kurumu faaliyet göstermiştir.",
+      "Bazı köşkler dönemin ünlü mimarları tarafından tasarlanmıştır.",
+      "Yangınlar tarih boyunca adadaki ahşap dokuyu tehdit eden başlıca risk oldu.",
+      "Ada kıyılarında deniz feneri işlevi gören küçük işaret yapıları bulunurdu.",
+      "Kışın ada nüfusu ciddi şekilde azalır, yazın turizmle artar.",
+      "Erken dönem vapur seferleri adayı İstanbul’un hafta sonu rotasına dönüştürdü.",
+      "Büyükada’da çekilmiş çok sayıda film ve dizi, adayı popüler kültüre taşıdı.",
+      "Geleneksel pastaneler ve dondurmacılar ada gastronomisinin simgeleridir.",
+      "Köşk bahçelerinde narenciye ve asma kültürü yaygındı.",
+      "Cemaatler arası bayram kutlamaları ada yaşamına renk katardı.",
+      "Ada mezarlıkları, çokkültürlü geçmişin izlerini taşır.",
+      "Tarihi iskele binaları dönem dönem restorasyonlardan geçmiştir.",
+      "Ada sokaklarında panjurlu pencereler iklimle baş etmek için işlevsel bir çözümdür.",
+      "Büyükada, İstanbul’un deprem tarihi açısından önemli gözlem notlarına sahiptir.",
+      "Adanın kıyı şeridi, geçmişte küçük tekne imalat ve onarımlarına ev sahipliği yaptı.",
+      "Ada’nın posta ve telgraf hizmetleri yaz aylarında yoğunlaşırdı.",
+      "Yazlık sinemalar bir dönem adalıların buluşma noktasıydı.",
+      "Ada’da dini yapılar yan yana yaşamanın sembolik örneklerini sunar.",
+      "Sahil boyunca görülen iskele kulübeleri, denize açılan küçük platformlardı.",
+      "Bazı köşkler, dönemin gazetelerinde “örnek yazlık konut” olarak tanıtılmıştır.",
+      "Büyükada’nın kıyı taşları, eski yol kaplamalarında da kullanılmıştır.",
+      "Ada’daki rüzgâr yönleri, yerleşim planında gölgeleme/sefayı etkilerdi.",
+      "Köşklerde kullanılan dökme demir korkuluklar ithal kataloğa göre seçilirdi.",
+      "Vapur şirketlerinin afişleri, adayı ‘serin yaz sığınağı’ olarak pazarlardı.",
+      "Ada’da yıllık panayırlar ve piknikler toplumsal hafızada yer eder.",
+      "Büyükada, edebiyatta “kaçış” ve “sakinlik” imgesiyle sıkça anılır.",
+      "Yüzyıl başında bazı köşklerde erken elektrik jeneratörleri kullanılmıştır.",
+      "Ada’daki ahşap bakım kültürü (boya, vernik) mevsimsel bir ritüeldi.",
+      "Yelken ve kürek sporları, iskele çevresinde kulüp faaliyetleri doğurmuştur.",
+      "Bazı manastır arazileri bağ/bahçe üretimi için de kullanılmıştır.",
+      "Arnavut kaldırımlı yollar, atlı ulaşım döneminden mirastır.",
+      "Ada’da posta kartı kültürü çok güçlüydü; manzara kartları koleksiyon konusudur."
+    ]; // 60+ bilgi
+
+    const factBox=document.getElementById('factBox');
+    const recentWrap=document.getElementById('recent');
+    const recent=[]; // son 5
+
+    function pickFact(){
+      if(!FACTS.length) return "Bugün çeşme kuru 🙂";
+      const idx=Math.floor(Math.random()*FACTS.length);
+      return FACTS[idx];
+    }
+    function revealFact(text){
+      // küçük bir animasyon
+      factBox.animate([{opacity:.2,transform:'scale(.98)'},{opacity:1,transform:'scale(1)'}],{duration:250,easing:'ease-out'});
+      factBox.textContent=text;
+      // history
+      recent.unshift(text);
+      if(recent.length>5) recent.pop();
+      renderRecent();
+    }
+    function renderRecent(){
+      recentWrap.innerHTML='';
+      recent.forEach(t=>{
+        const d=document.createElement('div');
+        d.className='chip';
+        d.textContent=t;
+        recentWrap.appendChild(d);
+      });
     }
 
-    // İlk çizim
-    document.addEventListener('DOMContentLoaded', ()=>{ draw(); });
+    document.getElementById('drawFact').addEventListener('click',()=>revealFact(pickFact()));
+    document.getElementById('another').addEventListener('click',()=>revealFact(pickFact()));
 
-    // Butonlar
-    document.getElementById('spin').addEventListener('click', spin);
-    document.getElementById('reset').addEventListener('click', resetAll);
-
-    // Sekmeler
+    // ---------- SEKMELER & YIL ----------
     const tWheel=document.getElementById('tWheel'), tInfo=document.getElementById('tInfo');
     const sWheel=document.getElementById('sWheel'), sInfo=document.getElementById('sInfo');
     tWheel.addEventListener('click',()=>{sWheel.hidden=false; sInfo.hidden=true; tWheel.setAttribute('aria-selected','true'); tInfo.setAttribute('aria-selected','false');});
     tInfo .addEventListener('click',()=>{sWheel.hidden=true;  sInfo.hidden=false; tWheel.setAttribute('aria-selected','false'); tInfo.setAttribute('aria-selected','true');});
+    document.getElementById('y').textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
