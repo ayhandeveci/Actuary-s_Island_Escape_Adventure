@@ -3,60 +3,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Büyükada Etkinliği — Renk Çarkı & Bilgi</title>
-  <meta name="description" content="Büyükada şirket etkinliği için renk çarkı fotoğraf oyunu ve ada hakkında temel bilgiler." />
+  <title>Büyükada Etkinliği — Renk Çarkı & Rehber</title>
+  <meta name="description" content="Büyükada şirket etkinliği için renk çarkı fotoğraf oyunu ve ada rehberi.">
   <style>
     :root{
-      --bg:#0f1115;
-      --card:#151923;
-      --muted:#9aa4b2;
-      --text:#e7ecf3;
-      --accent:#5F81FF;
-      --ok:#1ec28b;
-      --warn:#ffb84d;
-      --ring:#2a3142;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius:14px;
+      --bg:#0f1115; --card:#151923; --muted:#9aa4b2; --text:#e7ecf3; --accent:#5F81FF;
+      --ring:#2a3142; --shadow:0 10px 30px rgba(0,0,0,.35); --radius:14px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;height:100%;background:radial-gradient(1200px 600px at 110% -10%, #1a2030, #0f1115 60%);}
-    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, Apple Color Emoji, Segoe UI Emoji;
-         color:var(--text); line-height:1.5}
+    body{font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, Apple Color Emoji, Segoe UI Emoji; color:var(--text); line-height:1.5}
 
-    /* Layout */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(140%) blur(8px);
-      background:rgba(10,12,18,.6); border-bottom:1px solid #1f2533;
-    }
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px); background:rgba(10,12,18,.6); border-bottom:1px solid #1f2533}
     .nav{max-width:1100px; margin:auto; padding:10px 16px; display:flex; align-items:center; gap:16px}
     .brand{display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px}
     .brand .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,#6ea8ff,#91ffe2)}
     .spacer{flex:1}
     .tabs{display:flex; gap:6px}
-    .tabbtn{
-      appearance:none; border:0; padding:10px 14px; border-radius:10px;
-      color:var(--text); background:#1a2030; cursor:pointer; font-weight:600;
-      transition:transform .06s ease, background .2s ease, box-shadow .2s ease;
-      box-shadow: inset 0 0 0 1px #232a3b;
-    }
+    .tabbtn{appearance:none; border:0; padding:10px 14px; border-radius:10px; color:var(--text); background:#1a2030; cursor:pointer; font-weight:600; transition:transform .06s, background .2s, box-shadow .2s; box-shadow: inset 0 0 0 1px #232a3b}
     .tabbtn[aria-selected="true"]{ background:#222a3a; box-shadow: inset 0 0 0 1px #2f3a54, 0 6px 16px rgba(0,0,0,.25)}
     .tabbtn:active{transform:translateY(1px)}
+
     main{max-width:1100px; margin:18px auto 80px; padding:0 16px}
-    .hero{
-      margin:18px 0 24px; padding:20px; border-radius:var(--radius);
-      background:linear-gradient(180deg, rgba(95,129,255,.10), rgba(95,129,255,0) 60%), #121725;
-      box-shadow:var(--shadow); border:1px solid #1f2740;
-    }
+    .hero{margin:18px 0 24px; padding:20px; border-radius:var(--radius); background:linear-gradient(180deg, rgba(95,129,255,.10), rgba(95,129,255,0) 60%), #121725; box-shadow:var(--shadow); border:1px solid #1f2740}
     .hero h1{margin:0 0 8px; font-size:clamp(22px, 3.6vw, 32px)}
     .hero p{margin:0; color:var(--muted)}
     .grid{display:grid; gap:18px}
     @media(min-width:940px){ .grid{grid-template-columns: 1.2fr .8fr} }
 
-    .card{
-      background:var(--card); border-radius:var(--radius);
-      border:1px solid #22293a; box-shadow:var(--shadow);
-    }
+    .card{background:var(--card); border-radius:var(--radius); border:1px solid #22293a; box-shadow:var(--shadow)}
     .card .hd{display:flex; align-items:center; gap:10px; padding:14px 16px; border-bottom:1px solid #1f2533}
     .card .hd h3{margin:0; font-size:16px; letter-spacing:.2px}
     .card .bd{padding:16px}
@@ -67,49 +42,29 @@
 
     /* Wheel */
     .wheel-wrap{display:grid; place-items:center; padding:12px}
-    .wheel{
-      width:min(520px, 85vw); aspect-ratio:1/1; border-radius:50%;
-      display:grid; place-items:center; position:relative;
-      filter: drop-shadow(0 12px 24px rgba(0,0,0,.35));
-    }
+    .wheel{width:min(520px, 85vw); aspect-ratio:1/1; border-radius:50%; display:grid; place-items:center; position:relative; filter: drop-shadow(0 12px 24px rgba(0,0,0,.35))}
     .wheel svg{width:100%; height:100%; border-radius:50%; background:#0e1320; box-shadow: inset 0 0 0 6px var(--ring), inset 0 0 0 1px #3a4663}
-    .pin{
-      position:absolute; top:-10px; left:50%; transform:translateX(-50%);
-      width:0; height:0; border-left:10px solid transparent; border-right:10px solid transparent;
-      border-bottom:18px solid var(--accent); filter: drop-shadow(0 4px 10px rgba(95,129,255,.5));
-    }
+    .pin{position:absolute; top:-10px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:10px solid transparent; border-right:10px solid transparent; border-bottom:18px solid var(--accent); filter: drop-shadow(0 4px 10px rgba(95,129,255,.5))}
     .center-dot{position:absolute; width:20%; aspect-ratio:1/1; border-radius:50%; background:#0b1020; border:4px solid #29324a; display:grid; place-items:center}
     .center-dot span{font-size:12px; color:#a7b1c2}
-    .spinbtn{
-      appearance:none; border:0; background:linear-gradient(180deg,#6ea8ff,#5F81FF);
-      color:#0b1020; font-weight:800; letter-spacing:.4px;
-      padding:12px 16px; border-radius:12px; cursor:pointer; box-shadow:0 10px 20px rgba(95,129,255,.45);
-      transition:transform .08s ease, box-shadow .2s ease, filter .2s ease;
-    }
+    .spinbtn{appearance:none; border:0; background:linear-gradient(180deg,#6ea8ff,#5F81FF); color:#0b1020; font-weight:800; letter-spacing:.4px; padding:12px 16px; border-radius:12px; cursor:pointer; box-shadow:0 10px 20px rgba(95,129,255,.45); transition:transform .08s, box-shadow .2s, filter .2s}
     .spinbtn:hover{filter:saturate(110%)}
     .spinbtn:active{transform:translateY(1px)}
     .controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
     .controls input[type="color"]{appearance:none; width:34px; height:34px; border-radius:8px; border:1px solid #2b3347; background:#0f1422; padding:0}
     .controls input[type="text"]{background:#0f1422; color:var(--text); border:1px solid #283149; border-radius:10px; padding:8px 10px; width:120px}
-    .controls .mini{font-size:12px}
-    .result{
-      margin-top:14px; padding:12px; border-radius:12px; background:#101624; border:1px solid #26304a
-    }
+
+    .result{margin-top:14px; padding:12px; border-radius:12px; background:#101624; border:1px solid #26304a}
     .result strong{font-size:18px}
-    .todo{display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; margin-top:10px}
-    .todo .t{
-      background:#0f1422; border:1px solid #2a3350; border-radius:10px; padding:10px; display:flex; align-items:center; gap:8px; justify-content:center
-    }
-    .todo input{width:18px; height:18px}
-    .save-row{display:flex; gap:8px; align-items:center; margin-top:8px}
     .link{color:#a7c1ff; text-decoration:none}
-    .inline-code{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#0f1422; border:1px solid #283149; padding:2px 6px; border-radius:8px}
 
     /* Info section */
     .info p{margin:0 0 10px}
     .badge{padding:4px 8px; border:1px solid #2a3146; border-radius:8px; background:#101624; color:#cfd7e6; font-size:12px}
     ul.clean{margin:10px 0 0 18px}
     ul.clean li{margin:6px 0}
+    .cols{display:grid; gap:16px}
+    @media(min-width:860px){ .cols{grid-template-columns:1fr 1fr} }
 
     footer{max-width:1100px; margin:24px auto; padding:0 16px 60px; color:var(--muted); font-size:13px}
   </style>
@@ -129,10 +84,9 @@
   <main>
     <section class="hero">
       <h1>Fotoğraf Yarışması & Ada Rehberi</h1>
-      <p>Büyükada ruhunu yakalayalım! Çarkı çevir, çıkan renkten <strong>en az 4</strong> kare çek. Dönüşte en iyi seriyi birlikte seçelim.</p>
+      <p>Çarkı çevir, çıkan renkten gün boyunca <strong>en az 4 kare</strong> yakala. Dönüşte ekip oylamasıyla en yaratıcı seri seçilecek.</p>
     </section>
 
-    <!-- WHEEL + INFO GRID -->
     <section id="tab-wheel" class="grid" role="tabpanel" aria-labelledby="tabbtn-wheel">
       <div class="card">
         <div class="hd">
@@ -140,13 +94,17 @@
           <span class="pill">4 renk — rastgele seçim</span>
         </div>
         <div class="bd">
-          <div class="row controls" style="margin-bottom:12px">
-            <span class="mini muted">Renkler:</span>
+          <p class="muted" style="margin-top:0">
+            Çarkı çevir, sana düşen rengi öğren. Gün boyunca bu renge odaklanarak <strong>en az 4 fotoğraf</strong> çek. 
+            Kadrajda rengi <em>başrol</em> yapmaya çalış; doku, ışık ve açıyla destekle.
+          </p>
+
+          <div class="row controls" style="margin:12px 0">
+            <span class="muted" style="font-size:12px">Renkler & Etiketler:</span>
             <label title="Renk 1"><input type="color" id="c0" value="#2FA3BF"></label>
             <label title="Renk 2"><input type="color" id="c1" value="#2E6B5E"></label>
             <label title="Renk 3"><input type="color" id="c2" value="#B55239"></label>
             <label title="Renk 4"><input type="color" id="c3" value="#F2E7C9"></label>
-            <span class="mini muted">Etiket:</span>
             <input type="text" id="label0" value="Deniz" placeholder="Renk adı">
             <input type="text" id="label1" value="Çam" placeholder="Renk adı">
             <input type="text" id="label2" value="Kiremit" placeholder="Renk adı">
@@ -162,90 +120,110 @@
             </div>
             <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:center">
               <button class="spinbtn" id="spinBtn">ÇARKI ÇEVİR</button>
-              <button class="tabbtn" id="resetBtn" title="İlerlemeyi sıfırla">Sıfırla</button>
+              <button class="tabbtn" id="resetBtn" title="Sıfırla">Sıfırla</button>
             </div>
           </div>
 
           <div class="result" id="resultBox" hidden>
             <div id="resultText"></div>
-            <div class="todo" aria-label="Fotoğraf hedefleri">
-              <label class="t"><input type="checkbox" data-todo="1"> 1</label>
-              <label class="t"><input type="checkbox" data-todo="2"> 2</label>
-              <label class="t"><input type="checkbox" data-todo="3"> 3</label>
-              <label class="t"><input type="checkbox" data-todo="4"> 4</label>
+          </div>
+
+          <div class="result" style="margin-top:12px">
+            <strong>🧭 Neden bu palet?</strong>
+            <div class="cols" style="margin-top:8px">
+              <div>
+                <p><span class="pill" id="ex1">Deniz</span> — İskele, kıyı çizgisi ve martıların gölgesinde görülen <em>turkuaz–mavi</em> tonlar. Geniş kadraj ve yansıma kompozisyonlarıyla çalış.</p>
+                <p><span class="pill" id="ex2">Çam</span> — Adanın omurgası sayılan çam ormanlarının <em>derin yeşili</em>. Kontrast için güneş lekeleri veya patika çizgileri yakala.</p>
+              </div>
+              <div>
+                <p><span class="pill" id="ex3">Kiremit</span> — Köşk çatıları, iskele detayları ve eski ahşap yapıların <em>sıcak toprak</em> tonları. Doku ve yakın plan iyi sonuç verir.</p>
+                <p><span class="pill" id="ex4">Kum</span> — Sahil, taş ve kumsalın <em>pastel bej</em> tonları. Minimal kompozisyonlarda negatif alanı kullan.</p>
+              </div>
             </div>
-            <div class="save-row">
-              <span class="muted mini">İlerleme otomatik kaydedilir.</span>
-              <span id="doneBadge" class="badge" hidden>✔ 4/4 tamamlandı!</span>
-            </div>
+            <p class="muted" style="margin-top:6px">İpucu: Seçtiğin ana renge zıt bir <em>komplementer</em> dokunuş (ör. turkuaz ↔ pas/kiremit) kadrajı canlandırır.</p>
           </div>
         </div>
       </div>
 
       <aside class="card">
-        <div class="hd">
-          <h3>📸 Oyun Kuralları</h3>
-        </div>
+        <div class="hd"><h3>📸 Oyun Kuralları</h3></div>
         <div class="bd">
           <ol>
             <li>Çarkı çevir — çıkan renk günün teması.</li>
             <li>Bu renge <strong>hakim</strong> en az <strong>4 fotoğraf</strong> çek.</li>
-            <li>Farklı açılar, dokular, ışıklar dene (vitray, iskele, fayton izleri, orman yürüyüşü, sahil, çiçekler…).</li>
-            <li>Kontrol kutularını tikle — <em>hedef 4/4</em>.</li>
-            <li>Dönüşte ekip oylamasıyla “Günün Serisi”ni seçiyoruz. 🎉</li>
+            <li>Farklı mekânlar dene: iskele, köşk cepheleri, orman patikaları, sahil.</li>
+            <li>Akşam ekip oylamasıyla “Günün Serisi” seçilir. 🎉</li>
           </ol>
-          <p class="muted" style="margin-top:10px">İpucu: Kompozisyonda rengi öne çıkar; gerekirse **komplementer** bir vurguyla (ör. turkuaz ↔ toprak) kontrast yarat.</p>
         </div>
       </aside>
     </section>
 
     <section id="tab-info" class="card" role="tabpanel" aria-labelledby="tabbtn-info" hidden>
-      <div class="hd">
-        <h3>🏝️ Büyükada Hakkında</h3>
-      </div>
+      <div class="hd"><h3>🏝️ Büyükada Hakkında</h3></div>
       <div class="bd info">
         <div class="row" style="margin-bottom:10px">
           <span class="badge">Prens Adaları’nın en büyüğü</span>
           <span class="badge">İstanbul — Adalar</span>
           <span class="badge">Yürüyüş & bisiklet dostu</span>
         </div>
-        <p>İstanbul’un güneydoğusunda yer alan Büyükada; tarihi köşkleri, çam ormanları, sahil hattı ve manastırlarıyla bilinir. Merkezdeki çarşıdan başlayıp Aya Yorgi tepesine doğru yürüyüş, gün batımında iskele–Papalina sahil hattı ve Nizam tarafındaki köşk rotası popülerdir.</p>
-        <ul class="clean">
-          <li><strong>Günübirlik rota:</strong> İskele → Çarşı kahvesi → Nizam Caddesi köşkleri → Orman yürüyüşü → Aya Yorgi (panoramik manzara).</li>
-          <li><strong>Renk fikirleri:</strong> Turkuaz deniz, çam yeşili gölgeler, kiremit çatı dokuları, kumsal/kayalık tonları, pastel ahşap panjurlar.</li>
-          <li><strong>Fotoğraf tüyosu:</strong> Sabah/akşam eğik ışıkta doku ve renkler daha belirgin; öğlen sert ışıkta gölge kompozisyonları deneyin.</li>
-        </ul>
+
+        <div class="cols">
+          <div>
+            <p><strong>Kısa Rota Önerisi</strong></p>
+            <ul class="clean">
+              <li><strong>İskele & Çarşı</strong>: sabah kahvesi → vitray ve ahşap cephe detayları.</li>
+              <li><strong>Nizam Caddesi</strong>: köşkler, panjur ve balkon demiri desenleri.</li>
+              <li><strong>Orman Yolu</strong>: çam gölgeleri, topoğrafya ve patika çizgileri.</li>
+              <li><strong>Aya Yorgi Tepesi</strong>: gün batımında panoramik ada–şehir kesiti.</li>
+            </ul>
+            <p style="margin-top:10px"><strong>Fotoğraf Tüyoları</strong></p>
+            <ul class="clean">
+              <li>Sabah/akşam eğik ışıkta renkler doygun, öğlen gölgeler grafikleşir.</li>
+              <li>Ahşap–metal dokularda yakın plan; iskelede yansıma–simetri deneyin.</li>
+              <li>Bisiklet teker izi, fayton izi kalıpları ve taş yollar iyi ritim verir.</li>
+            </ul>
+          </div>
+
+          <div>
+            <p><strong>“İlginç Bilgiler” Seçkisi</strong></p>
+            <ul class="clean">
+              <li>Adanın yerleşim dokusu, <em>kıyı köşkleri</em> ve <em>çam örtüsü</em> arasındaki karşıtlığa dayanır; fotoğrafta renk hikâyesi kurmak için ideal.</li>
+              <li>Rüzgârlı günlerde <em>Poyraz</em> kıyı şeridinde dalga çizgileri ve köpük dokuları belirginleşir—uzun pozlama deneyebilirsin.</li>
+              <li>Güz aylarında akşam ışığı <em>kiremit</em> ve <em>ahşap</em> tonlarını sıcaklaştırır; mavi saatinde iskelede ışık–izleri yakalanır.</li>
+              <li>Dar sokaklarda panjur renkleri çoğu zaman komşu evlerle <em>komplementer</em> kontrast verir—renk temalı setler için biçilmiş kaftan.</li>
+              <li>Yükseğe çıktıkça sisli günlerde şehir siluetiyle <em>katmanlı</em> arka plan oluşur; tele objektif ile sıkıştırma etkisi güçlüdür.</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    © <span id="year"></span> Büyükada Etkinliği — Tek sayfa uygulama. Renkler ve ilerleme bu cihazda saklanır.
+    © <span id="year"></span> Büyükada Etkinliği — Tek sayfa uygulama. Renkler bu cihazda saklanır.
   </footer>
 
   <script>
-    // --- Utilities ---
+    // --- Helpers ---
     const $ = (q, el=document)=>el.querySelector(q);
     const $$ = (q, el=document)=>Array.from(el.querySelectorAll(q));
-    const storageKey = 'buyukada-color-game-v1';
+    const storageKey = 'buyukada-color-game-v2';
 
     const state = {
       colors: ['#2FA3BF','#2E6B5E','#B55239','#F2E7C9'],
       labels: ['Deniz','Çam','Kiremit','Kum'],
       selectedIndex: null,
-      todos: {1:false,2:false,3:false,4:false},
       spinAngle: 0
     };
 
-    // Load saved state
-    (function loadState(){
+    // Load state
+    (function(){
       try{
         const saved = JSON.parse(localStorage.getItem(storageKey)||'null');
         if(saved && Array.isArray(saved.colors) && Array.isArray(saved.labels)){
           state.colors = saved.colors.slice(0,4);
           state.labels = saved.labels.slice(0,4);
           state.selectedIndex = typeof saved.selectedIndex==='number' ? saved.selectedIndex : null;
-          state.todos = saved.todos || state.todos;
           state.spinAngle = saved.spinAngle || 0;
         }
       }catch(e){}
@@ -254,37 +232,30 @@
     function saveState(){
       localStorage.setItem(storageKey, JSON.stringify({
         colors: state.colors, labels: state.labels,
-        selectedIndex: state.selectedIndex,
-        todos: state.todos, spinAngle: state.spinAngle
+        selectedIndex: state.selectedIndex, spinAngle: state.spinAngle
       }));
     }
 
-    // --- Tabs ---
-    const tabWheelBtn = $('#tabbtn-wheel');
-    const tabInfoBtn  = $('#tabbtn-info');
-    const tabWheel = $('#tab-wheel');
-    const tabInfo  = $('#tab-info');
-
+    // Tabs
+    const tabWheelBtn = $('#tabbtn-wheel'), tabInfoBtn = $('#tabbtn-info');
+    const tabWheel = $('#tab-wheel'), tabInfo = $('#tab-info');
     function activate(tab){
       if(tab==='wheel'){
         tabWheel.hidden=false; tabInfo.hidden=true;
-        tabWheelBtn.setAttribute('aria-selected','true');
-        tabInfoBtn.setAttribute('aria-selected','false');
+        tabWheelBtn.setAttribute('aria-selected','true'); tabInfoBtn.setAttribute('aria-selected','false');
       }else{
         tabWheel.hidden=true; tabInfo.hidden=false;
-        tabWheelBtn.setAttribute('aria-selected','false');
-        tabInfoBtn.setAttribute('aria-selected','true');
+        tabWheelBtn.setAttribute('aria-selected','false'); tabInfoBtn.setAttribute('aria-selected','true');
       }
     }
     tabWheelBtn.addEventListener('click', ()=>activate('wheel'));
     tabInfoBtn.addEventListener('click', ()=>activate('info'));
 
-    // --- Wheel Drawing (SVG) ---
+    // Wheel drawing
     const svg = $('#wheelSvg');
     function drawWheel(){
       svg.innerHTML='';
-      const n = 4;
-      const center = {x:50, y:50, r:48};
+      const n = 4, center = {x:50, y:50, r:48};
       for(let i=0;i<n;i++){
         const startAngle = (i/n)*2*Math.PI - Math.PI/2;
         const endAngle = ((i+1)/n)*2*Math.PI - Math.PI/2;
@@ -292,19 +263,12 @@
         const y1 = center.y + center.r*Math.sin(startAngle);
         const x2 = center.x + center.r*Math.cos(endAngle);
         const y2 = center.y + center.r*Math.sin(endAngle);
-        const largeArc = (endAngle-startAngle) > Math.PI ? 1 : 0;
 
         const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-        const d = [
-          `M ${center.x} ${center.y}`,
-          `L ${x1} ${y1}`,
-          `A ${center.r} ${center.r} 0 ${largeArc} 1 ${x2} ${y2}`,
-          'Z'
-        ].join(' ');
+        const d = `M ${center.x} ${center.y} L ${x1} ${y1} A ${center.r} ${center.r} 0 0 1 ${x2} ${y2} Z`;
         path.setAttribute('d', d);
         path.setAttribute('fill', state.colors[i]);
-        path.setAttribute('stroke', '#0b1020');
-        path.setAttribute('stroke-width', '0.6');
+        path.setAttribute('stroke', '#0b1020'); path.setAttribute('stroke-width', '0.6');
         svg.appendChild(path);
 
         // Label
@@ -312,17 +276,13 @@
         const lx = center.x + (center.r*0.58)*Math.cos(midAngle);
         const ly = center.y + (center.r*0.58)*Math.sin(midAngle);
         const text = document.createElementNS('http://www.w3.org/2000/svg','text');
-        text.setAttribute('x', lx);
-        text.setAttribute('y', ly);
+        text.setAttribute('x', lx); text.setAttribute('y', ly);
         text.setAttribute('fill', contrastColor(state.colors[i]));
-        text.setAttribute('font-size', '5');
-        text.setAttribute('font-weight', '700');
-        text.setAttribute('text-anchor','middle');
-        text.setAttribute('dominant-baseline','middle');
+        text.setAttribute('font-size', '5'); text.setAttribute('font-weight', '700');
+        text.setAttribute('text-anchor','middle'); text.setAttribute('dominant-baseline','middle');
         text.textContent = state.labels[i] || `Renk ${i+1}`;
         svg.appendChild(text);
       }
-      // Apply rotation
       svg.style.transition='transform .0s';
       svg.style.transform=`rotate(${state.spinAngle}deg)`;
       setTimeout(()=>{ svg.style.transition='transform 2.2s cubic-bezier(.14,.81,.2,1)'; }, 20);
@@ -339,122 +299,62 @@
       }catch(e){ return '#ffffff' }
     }
 
-    // --- Spin ---
-    const spinBtn = $('#spinBtn');
-    const resultBox = $('#resultBox');
-    const resultText = $('#resultText');
-    const doneBadge = $('#doneBadge');
-
+    // Spin
+    const spinBtn = $('#spinBtn'), resultBox = $('#resultBox'), resultText = $('#resultText');
     function spin(){
-      const n = 4;
-      const target = Math.floor(Math.random()*n); // 0..3
+      const n=4, target = Math.floor(Math.random()*n);
       state.selectedIndex = target;
-
-      // We rotate so that target lands at the top (pin). Each slice is 360/n.
       const slice = 360/n;
-      // SVG rotates clockwise; our first slice starts at top; pointer at 0deg.
-      // We want the target center to align with 0°. Center of slice at (target+0.5)*slice.
       const targetAngle = 360 - (target + 0.5) * slice;
-      const extraSpins = 4*360; // extra rotations
-      const finalAngle = extraSpins + targetAngle + (Math.random()*4-2); // slight randomness
+      const finalAngle = 4*360 + targetAngle + (Math.random()*4-2);
       state.spinAngle = finalAngle % 360;
 
       svg.style.transition='transform 3.2s cubic-bezier(.07,.8,.11,1)';
       svg.style.transform=`rotate(${finalAngle}deg)`;
-
       spinBtn.disabled = true;
       setTimeout(()=>{
-        spinBtn.disabled = false;
-        showResult();
-        saveState();
+        spinBtn.disabled = false; showResult(); saveState();
       }, 3300);
     }
 
     function showResult(){
-      const i = state.selectedIndex;
-      if(i==null) return;
-      const color = state.colors[i];
-      const label = state.labels[i] || `Renk ${i+1}`;
+      const i = state.selectedIndex; if(i==null) return;
+      const color = state.colors[i], label = state.labels[i] || `Renk ${i+1}`;
       resultBox.hidden = false;
-      resultBox.style.borderColor = '#26304a';
       resultText.innerHTML = `
         <strong style="display:inline-flex; align-items:center; gap:8px">
           Bugünün rengi: <span class="pill" style="background:${color}; color:${contrastColor(color)}; border-color:rgba(0,0,0,.15)">${label}</span>
         </strong>
-        <div class="muted" style="margin-top:6px">Görev: Bu renge <strong>hakim</strong> en az <strong>4 fotoğraf</strong> çek ve aşağıdan işaretle.</div>
+        <div class="muted" style="margin-top:6px">Hedef: Bu renge hakim <strong>en az 4 fotoğraf</strong> çek. Farklı mekan ve ışık koşulları dene.</div>
       `;
-      updateTodosUI();
+      // Palet açıklaması etiketlerini güncelle
+      $('#ex1').style.background = state.colors[0]; $('#ex1').style.color = contrastColor(state.colors[0]); $('#ex1').textContent = state.labels[0]||'Renk 1';
+      $('#ex2').style.background = state.colors[1]; $('#ex2').style.color = contrastColor(state.colors[1]); $('#ex2').textContent = state.labels[1]||'Renk 2';
+      $('#ex3').style.background = state.colors[2]; $('#ex3').style.color = contrastColor(state.colors[2]); $('#ex3').textContent = state.labels[2]||'Renk 3';
+      $('#ex4').style.background = state.colors[3]; $('#ex4').style.color = contrastColor(state.colors[3]); $('#ex4').textContent = state.labels[3]||'Renk 4';
     }
 
-    // --- Todos (4/4) ---
-    $$('.todo input').forEach(cb=>{
-      cb.addEventListener('change', e=>{
-        const k = e.target.getAttribute('data-todo');
-        state.todos[k] = !!e.target.checked;
-        updateTodosUI(); saveState();
-      });
-    });
+    // Palette controls
+    const colorInputs=[$('#c0'),$('#c1'),$('#c2'),$('#c3')];
+    const labelInputs=[$('#label0'),$('#label1'),$('#label2'),$('#label3')];
+    function syncInputs(){ colorInputs.forEach((inp,i)=>inp.value=state.colors[i]); labelInputs.forEach((inp,i)=>inp.value=state.labels[i]); }
+    function capture(){ state.colors=colorInputs.map(x=>x.value); state.labels=labelInputs.map((x,i)=> (x.value||'').trim()||`Renk ${i+1}`); }
+    $('#savePalette').addEventListener('click', ()=>{ capture(); drawWheel(); showResult(); saveState(); });
+    colorInputs.concat(labelInputs).forEach(inp=> inp.addEventListener('change', ()=>{ capture(); drawWheel(); saveState(); }));
 
-    function updateTodosUI(){
-      let count = 0;
-      $$('.todo input').forEach(cb=>{
-        const k = cb.getAttribute('data-todo');
-        cb.checked = !!state.todos[k];
-        if(cb.checked) count++;
-      });
-      if(count>=4){ doneBadge.hidden=false; pulse(doneBadge); }
-      else { doneBadge.hidden=true; }
-    }
+    // Reset
+    $('#resetBtn').addEventListener('click', ()=>{ if(!confirm('Sıfırlansın mı?')) return; state.selectedIndex=null; state.spinAngle=0; drawWheel(); resultBox.hidden=true; saveState(); });
 
-    function pulse(el){
-      el.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}], {duration:500, easing:'ease'});
-    }
-
-    // --- Palette controls ---
-    const colorInputs = [$('#c0'),$('#c1'),$('#c2'),$('#c3')];
-    const labelInputs = [$('#label0'),$('#label1'),$('#label2'),$('#label3')];
-    function syncInputsFromState(){
-      colorInputs.forEach((inp,idx)=> inp.value = state.colors[idx]);
-      labelInputs.forEach((inp,idx)=> inp.value = state.labels[idx]);
-    }
-    function captureInputsToState(){
-      state.colors = colorInputs.map(inp => inp.value);
-      state.labels = labelInputs.map(inp => (inp.value||'').trim() || `Renk ${labelInputs.indexOf(inp)+1}`);
-    }
-    $('#savePalette').addEventListener('click', ()=>{
-      captureInputsToState(); drawWheel(); showResult(); saveState();
-      pulse($('#savePalette'));
-    });
-    colorInputs.concat(labelInputs).forEach(inp=>{
-      inp.addEventListener('change', ()=>{ captureInputsToState(); drawWheel(); saveState(); });
-    });
-
-    // --- Reset ---
-    $('#resetBtn').addEventListener('click', ()=>{
-      if(!confirm('Tüm ilerlemeyi sıfırlamak istiyor musun?')) return;
-      state.todos = {1:false,2:false,3:false,4:false};
-      state.selectedIndex = null;
-      state.spinAngle = 0;
-      drawWheel();
-      resultBox.hidden = true;
-      saveState();
-    });
-
-    // --- Init ---
+    // Init
     (function init(){
-      document.title = 'Büyükada Etkinliği — Renk Çarkı & Bilgi';
+      document.title = 'Büyükada Etkinliği — Renk Çarkı & Rehber';
       $('#year').textContent = new Date().getFullYear();
-      syncInputsFromState();
-      drawWheel();
-      if(state.selectedIndex!=null){ showResult(); }
+      syncInputs(); drawWheel(); if(state.selectedIndex!=null){ showResult(); }
     })();
 
-    // --- Events ---
+    // Events
     spinBtn.addEventListener('click', spin);
-
-    // Keyboard accessibility: Enter on focused spin button triggers spin
-    spinBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); spin(); } });
-
+    spinBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); spin(); } });
   </script>
 </body>
 </html>
